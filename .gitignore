@@ -6,6 +6,8 @@
 ## Build folders
 bin/
 obj/
+*.user
+*.suo
 
 ## ASP.NET logs / local files
 *.log
