@@ -1,0 +1,35 @@
+﻿@model List<IT3047_Final_Project.Models.Hobby>
+
+@{
+    ViewBag.Title = "Hobby List";
+}
+
+<h1>Hobby List</h1>
+
+<p>
+    <a asp-controller="Hobby" asp-action="Create" class="btn btn-primary">Add Hobby</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Hobby Name</th>
+            <th>Description</th>
+            <th>Frequency</th>
+            <th>Years Invested</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hobby in Model)
+        {
+            <tr>
+                <td>@hobby.HobbyName</td>
+                <td>@hobby.Description</td>
+                <td>@hobby.Frequency</td>
+                <td>@hobby.YearsInvested</td>
+                <td><a asp-controller="Hobby" asp-action="Delete" asp-route-id="@hobby.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

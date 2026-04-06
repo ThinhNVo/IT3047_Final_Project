@@ -1,0 +1,33 @@
+﻿@model IT3047_Final_Project.Models.Hobby
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2 class="p-2">Delete Hobby</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Hobby Name</th>
+            <th>Description</th>
+            <th>Frequency</th>
+            <th>Years Invested</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.HobbyName</td>
+            <td>@Model.Description</td>
+            <td>@Model.Frequency</td>
+            <td>@Model.YearsInvested</td>
+        </tr>
+    </tbody>
+</table>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-dark mr-2">Delete</button>
+    <a asp-action="Index" class="btn btn-dark">Cancel</a>
+</form>
