@@ -17,7 +17,7 @@ namespace IT3047_Final_Project.Models
         public int Frequency { get; set; }
 
         [Required(ErrorMessage = "Please enter years invested")]
-        [Range(1, 10, ErrorMessage = "Years invested must be between 0.5 and 10.")]
+        [Range(1, 10, ErrorMessage = "Years invested must be between 1 and 10.")]
         public int YearsInvested { get; set; }
     }
 }

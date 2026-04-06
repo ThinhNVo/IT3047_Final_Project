@@ -1,0 +1,40 @@
+﻿@model IT3047_Final_Project.Models.Hobby
+
+@{
+    ViewBag.Title = "Add Hobby";
+}
+
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<h1>Add Hobby</h1>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="HobbyName" class="form-label">Hobby Name</label>
+        <input asp-for="HobbyName" class="form-control" />
+        <span asp-validation-for="HobbyName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Frequency" class="form-label">Frequency (1 to 5)</label>
+        <input asp-for="Frequency" class="form-control" />
+        <span asp-validation-for="Frequency" class="text-danger"></span>
+    </div>
+    
+    <div class="mb-3">
+        <label asp-for="YearsInvested" class="form-label"> Years invested (1 to 10)</label>
+        <input asp-for="YearsInvested" class="form-control" />
+        <span asp-validation-for="YearsInvested" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Hobby</button>
+</form>

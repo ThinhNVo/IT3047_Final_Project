@@ -18,6 +18,9 @@ namespace IT3047_Final_Project.Controllers
             return View();
         }
 
-        
+        public IActionResult GoToHobbies()
+        {
+            return RedirectToAction("Index", "Hobby");
+        }
     }
 }
