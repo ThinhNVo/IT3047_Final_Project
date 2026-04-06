@@ -1,7 +1,18 @@
+using IT3047_Final_Project.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// DbContext
+builder.Services.AddDbContext<MembersContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("MembersContext")
+        ?? throw new InvalidOperationException("Connection string 'MembersContext' not found.")
+    )
+);
 
 var app = builder.Build();
 

@@ -8,5 +8,6 @@ namespace IT3047_Final_Project.Models
         {
         }
         public DbSet<Members> Members { get; set; }
+        public DbSet<Hobby> Hobbies { get; set; }
     }
 }
