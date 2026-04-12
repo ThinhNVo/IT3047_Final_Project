@@ -1,22 +1,142 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    html {
+        font-size: 16px;
+    }
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 80px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.navbar {
+    padding: 0.75rem 1rem;
+}
+
+.navbar-brand {
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+}
+
+.navbar-dark .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: color 0.2s ease;
+}
+
+    .navbar-dark .nav-link:hover {
+        color: #fff !important;
+    }
+
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+}
+
+    .hero-section .lead {
+        color: white;
+    }
+
+.feature-card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+.btn-primary {
+    background-color: #667eea;
+    border-color: #667eea;
+    border-radius: 6px;
+    padding: 0.5rem 1.5rem;
+    transition: background-color 0.2s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #5a6fd6;
+        border-color: #5a6fd6;
+    }
+
+.btn-danger {
+    border-radius: 6px;
+}
+
+.table {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+    .table thead {
+        background-color: #667eea;
+        color: #fff;
+    }
+
+    .table th {
+        font-weight: 600;
+        padding: 0.75rem 1rem;
+    }
+
+    .table td {
+        padding: 0.75rem 1rem;
+        vertical-align: middle;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f1f3ff;
+    }
+
+.form-control {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    padding: 0.5rem 0.75rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .form-control:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    }
+
+.form-label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #5a6fd6;
+        text-decoration: underline;
+    }
+
+.site-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 60px;
+    border-top: 1px solid #e5e5e5;
+    background-color: #fff;
+    font-size: 0.9rem;
+}
+
+.text-danger {
+    font-size: 0.85rem;
 }
