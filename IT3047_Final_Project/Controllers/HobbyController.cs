@@ -1,71 +1,68 @@
-﻿using IT3047_Final_Project.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using IT3047_Final_Project.Models;
 
 namespace IT3047_Final_Project.Controllers
 {
     public class HobbyController : Controller
     {
-        private readonly MembersContext context;
+        private readonly MembersContext _context;
 
-        public HobbyController(MembersContext ctx)
+        public HobbyController(MembersContext context)
         {
-            context = ctx;
+            _context = context;
         }
 
+        // GET: Hobby
         public IActionResult Index()
         {
-            var hobbies = context.Hobbies
-                .OrderBy(h => h.Id)
-                .ToList();
-
+            var hobbies = _context.Hobbies.Include(h => h.Member).ToList();
             return View(hobbies);
         }
 
-        [HttpGet]
+        // GET: Hobby/Create
         public IActionResult Create()
         {
+            ViewBag.Members = new SelectList(_context.Members.ToList(), "Id", "Name");
             return View();
         }
 
+        // POST: Hobby/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Hobby hobby)
         {
             if (ModelState.IsValid)
             {
-                context.Hobbies.Add(hobby);
-                context.SaveChanges();
-                return RedirectToAction("Index", "Hobby");
+                _context.Hobbies.Add(hobby);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                ModelState.AddModelError("", "Please correct all errors and try again.");
-                return View(hobby);
-            }
-        }
-
-        [HttpGet]
-        public IActionResult Delete(int id)
-        {
-            var hobby = context.Hobbies.FirstOrDefault(h => h.Id == id);
-            if (hobby == null)
-            {
-                return NotFound();
-            }
-
+            ViewBag.Members = new SelectList(_context.Members.ToList(), "Id", "Name");
             return View(hobby);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public RedirectToActionResult Delete(Hobby hobby)
+        // GET: Hobby/Delete/5
+        public IActionResult Delete(int id)
         {
-            context.Remove(hobby);
-            context.SaveChanges();
+            var hobby = _context.Hobbies.Include(h => h.Member).FirstOrDefault(h => h.Id == id);
+            if (hobby == null) return NotFound();
+            return View(hobby);
+        }
 
-            return RedirectToAction("Index");
+        // POST: Hobby/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var hobby = _context.Hobbies.FirstOrDefault(h => h.Id == id);
+            if (hobby != null)
+            {
+                _context.Hobbies.Remove(hobby);
+                _context.SaveChanges();
+            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -1,40 +1,64 @@
 ﻿@model IT3047_Final_Project.Models.Hobby
 
 @{
-    ViewBag.Title = "Add Hobby";
+    ViewData["Title"] = "Add Hobby";
 }
 
-@section scripts {
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-}
+<div class="hobby-hero text-center py-4 my-4">
+    <h1 class="display-5 fw-bold">Add a Hobby</h1>
+    <p class="lead mt-2">Fill out the form below to add a hobby for a member.</p>
+</div>
 
-<h1>Add Hobby</h1>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card feature-card shadow-sm p-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-<form asp-action="Create" method="post">
-    <div class="mb-3">
-        <label asp-for="HobbyName" class="form-label">Hobby Name</label>
-        <input asp-for="HobbyName" class="form-control" />
-        <span asp-validation-for="HobbyName" class="text-danger"></span>
+                <div class="mb-3">
+                    <label asp-for="MemberId" class="form-label">Member</label>
+                    <select asp-for="MemberId" asp-items="ViewBag.Members" class="form-control">
+                        <option value="">-- Select a Member --</option>
+                    </select>
+                    <span asp-validation-for="MemberId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="HobbyName" class="form-label">Hobby Name</label>
+                    <input asp-for="HobbyName" class="form-control" placeholder="e.g. Photography" />
+                    <span asp-validation-for="HobbyName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <textarea asp-for="Description" class="form-control" rows="3" placeholder="Describe this hobby..."></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="YearsInvested" class="form-label">Years Invested</label>
+                    <input asp-for="YearsInvested" class="form-control" type="number" min="1" max="10" placeholder="1–10" />
+                    <span asp-validation-for="YearsInvested" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="HowOften" class="form-label">How Often Do They Do This?</label>
+                    <select asp-for="HowOften" class="form-control">
+                        <option value="">-- Select Frequency --</option>
+                        <option value="Daily">Daily</option>
+                        <option value="A few times a week">A few times a week</option>
+                        <option value="Weekly">Weekly</option>
+                        <option value="A few times a month">A few times a month</option>
+                        <option value="Rarely">Rarely</option>
+                    </select>
+                    <span asp-validation-for="HowOften" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex gap-2 mt-3">
+                    <button type="submit" class="btn btn-primary">Save Hobby</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="Description" class="form-label"></label>
-        <input asp-for="Description" class="form-control" />
-        <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Frequency" class="form-label">Frequency (1 to 5)</label>
-        <input asp-for="Frequency" class="form-control" />
-        <span asp-validation-for="Frequency" class="text-danger"></span>
-    </div>
-    
-    <div class="mb-3">
-        <label asp-for="YearsInvested" class="form-label"> Years invested (1 to 10)</label>
-        <input asp-for="YearsInvested" class="form-control" />
-        <span asp-validation-for="YearsInvested" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Add Hobby</button>
-</form>
+</div>
