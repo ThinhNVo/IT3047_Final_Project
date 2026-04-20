@@ -1,35 +1,44 @@
-﻿@model List<IT3047_Final_Project.Models.Hobby>
+﻿@model IEnumerable<IT3047_Final_Project.Models.Hobby>
 
 @{
-    ViewBag.Title = "Hobby List";
+    ViewData["Title"] = "Hobbies";
 }
 
-<h1>Hobby List</h1>
+<div class="hobby-hero text-center py-4 my-4">
+    <h1 class="display-5 fw-bold">All Hobbies</h1>
+    <p class="lead mt-2">Browse and manage hobbies for all members.</p>
+</div>
 
-<p>
-    <a asp-controller="Hobby" asp-action="Create" class="btn btn-primary">Add Hobby</a>
-</p>
+<div class="d-flex justify-content-end mb-3">
+    <a asp-action="Create" class="btn btn-primary">+ Add Hobby</a>
+</div>
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Hobby Name</th>
-            <th>Description</th>
-            <th>Frequency</th>
-            <th>Years Invested</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var hobby in Model)
-        {
+<div class="table-responsive">
+    <table class="table">
+        <thead>
             <tr>
-                <td>@hobby.HobbyName</td>
-                <td>@hobby.Description</td>
-                <td>@hobby.Frequency</td>
-                <td>@hobby.YearsInvested</td>
-                <td><a asp-controller="Hobby" asp-action="Delete" asp-route-id="@hobby.Id">Delete</a></td>
+                <th>Member</th>
+                <th>Hobby Name</th>
+                <th>Description</th>
+                <th>Years Invested</th>
+                <th>How Often</th>
+                <th>Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Member?.Name</td>
+                    <td>@item.HobbyName</td>
+                    <td>@item.Description</td>
+                    <td>@item.YearsInvested</td>
+                    <td>@item.HowOften</td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,49 @@
+﻿@model IT3047_Final_Project.Models.Members
+
+@{
+    ViewData["Title"] = "Add Member";
+}
+
+<div class="hobby-hero text-center py-4 my-4">
+    <h1 class="display-5 fw-bold">Add a Member</h1>
+    <p class="lead mt-2">Fill out the form below to add a new member.</p>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card feature-card shadow-sm p-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" placeholder="Full name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Major" class="form-label"></label>
+                    <input asp-for="Major" class="form-control" placeholder="e.g. Computer Science" />
+                    <span asp-validation-for="Major" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Age" class="form-label"></label>
+                    <input asp-for="Age" class="form-control" type="number" placeholder="e.g. 21" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="DreamJob" class="form-label"></label>
+                    <input asp-for="DreamJob" class="form-control" placeholder="e.g. Software Engineer" />
+                    <span asp-validation-for="DreamJob" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Bio" class="form-label"></label>
+                    <textarea asp-for="Bio" class="form-control" rows="3" placeholder="A short bio..."></textarea>
+                    <span asp-validation-for="Bio" class="text-danger"></span>
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                    <button type="submit" class="btn btn-primary">Save Member</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

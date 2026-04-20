@@ -1,23 +1,29 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace IT3047_Final_Project.Models
 {
     public class Hobby
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Please select a member.")]
+        public int MemberId { get; set; }
+
+        [ForeignKey("MemberId")]
+        public Members? Member { get; set; }
+
         [Required(ErrorMessage = "Please enter a hobby name.")]
-        public string HobbyName { get; set; }
+        public string? HobbyName { get; set; }
 
         [Required(ErrorMessage = "Please enter a hobby description.")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
-        [Required(ErrorMessage = "Please enter a frequency for the hobby.")]
-        [Range(1, 5, ErrorMessage = "Frequency must be between 1 and 5.")]
-        public int Frequency { get; set; }
-
-        [Required(ErrorMessage = "Please enter years invested")]
+        [Required(ErrorMessage = "Please enter years invested.")]
         [Range(1, 10, ErrorMessage = "Years invested must be between 1 and 10.")]
         public int YearsInvested { get; set; }
+
+        [Required(ErrorMessage = "Please enter how often they do this hobby.")]
+        public string? HowOften { get; set; }
     }
 }
