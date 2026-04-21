@@ -1,0 +1,27 @@
+﻿@model IEnumerable<IT3047_Final_Project.Models.Members>
+
+@{
+    ViewData["Title"] = "About Us";
+}
+
+<div class="text-center py-4 my-4">
+    <h1 class="display-5 fw-bold">Meet the Team</h1>
+    <p class="lead mt-2">Learn more about the members behind this project.</p>
+</div>
+
+<div class="row justify-content-center">
+    @foreach (var member in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <h3 class="card-title fw-bold">@member.Name</h3>
+                    <p><strong>Major:</strong> @member.Major</p>
+                    <p><strong>Age:</strong> @member.Age</p>
+                    <p><strong>Dream Job:</strong> @member.DreamJob</p>
+                    <p class="mt-3">@member.Bio</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
