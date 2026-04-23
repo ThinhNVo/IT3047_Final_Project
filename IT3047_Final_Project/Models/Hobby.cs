@@ -20,7 +20,7 @@ namespace IT3047_Final_Project.Models
         public string? Description { get; set; }
 
         [Required(ErrorMessage = "Please enter years invested.")]
-        [Range(1, 10, ErrorMessage = "Years invested must be between 1 and 10.")]
+        [Range(1, 20, ErrorMessage = "Years invested must be between 1 and 20.")]
         public int YearsInvested { get; set; }
 
         [Required(ErrorMessage = "Please enter how often they do this hobby.")]
