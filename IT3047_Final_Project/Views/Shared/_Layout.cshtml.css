@@ -46,3 +46,13 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+.button-card {
+    transition: all 0.2s ease-in-out;
+    border-radius: 10px;
+}
+
+    .button-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }

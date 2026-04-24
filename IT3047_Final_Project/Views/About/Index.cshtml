@@ -1,69 +1,69 @@
 ﻿@{
-    ViewData["Title"] = "About Us";
+    ViewData["Title"] = "About Hobbies";
 }
 
 <div class="text-center py-4 my-4">
-    <h1 class="display-5 fw-bold">Meet the Team</h1>
-    <p class="lead mt-2">Learn more about the members behind this project.</p>
+    <h1 class="display-5 fw-bold">About Our Hobbies</h1>
+    <p class="lead mt-2">Click a member to view their hobbies.</p>
 </div>
 
 <div class="row justify-content-center">
 
-    <!-- Thinh Vo -->
     <div class="col-md-4 mb-4">
-        <div class="card shadow-sm p-3 h-100 text-center">
-            <img src="~/Images/ThinhVo.jpg"
-                 class="card-img-top"
-                 style="width: 100%; height: 400px; object-fit: cover; object-position: center;"
-                 alt="Thinh Vo" />
-            <div class="card-body">
-                <h3 class="card-title fw-bold">Thinh Vo</h3>
-                <p><strong>Major:</strong> (Major) </p>
-                <p><strong>Age:</strong> (Age)</p>
-                <p><strong>Dream Job:</strong> (Dream job)</p>
-                <p class="mt-3">
-                    (Bio for Thinh — short description of his background and role.)
-                </p>
+        <a asp-controller="About" asp-action="Hobby" asp-route-name="Thinh"
+   class="btn btn-light w-100 p-0 text-decoration-none text-dark">
+            <div class="card shadow-sm p-3 h-100 text-center">
+                <img src="~/Images/ThinhVo.jpg"
+                     class="card-img-top"
+                     style="width: 100%; height: 400px; object-fit: cover;"
+                     alt="Thinh Vo" />
+                <div class="card-body">
+                    <h3 class="card-title fw-bold">Thinh Vo</h3>
+                    <p><strong>Major:</strong> Information Technology</p>
+                    <p><strong>Age:</strong> 22</p>
+                    <p><strong>Dream Job:</strong> System Administratir</p>
+                    <p class="mt-3">I like hiking, cats, and code</p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 
-    <!-- Opal Shah -->
     <div class="col-md-4 mb-4">
-        <div class="card shadow-sm p-3 h-100 text-center">
-            <img src="~/Images/OpalShah.jpg"
-                 class="card-img-top"
-                 style="width: 100%; height: 400px; object-fit: cover; object-position: center;"
-                 alt="Opal Shah" />
-            <div class="card-body">
-                <h3 class="card-title fw-bold">Opal Shah</h3>
-                <p><strong>Major:</strong> Information Technology</p>
-                <p><strong>Age:</strong> 22</p>
-                <p><strong>Dream Job:</strong> Singer</p>
-                <p class="mt-3">
-                    Junior at the University of Cincinnati majoring in IT, worked on creating content for the About page
-                </p>
+        <a asp-controller="About" asp-action="Hobby" asp-route-name="Opal"
+   class="btn btn-light w-100 p-0 text-decoration-none text-dark">
+            <div class="card shadow-sm p-3 h-100 text-center">
+                <img src="~/Images/OpalShah.jpg"
+                     class="card-img-top"
+                     style="width: 100%; height: 400px; object-fit: cover;"
+                     alt="Opal Shah" />
+                <div class="card-body">
+                    <h3 class="card-title fw-bold">Opal Shah</h3>
+                    <p><strong>Major:</strong> Information Technology</p>
+                    <p><strong>Age:</strong> 22</p>
+                    <p><strong>Dream Job:</strong> Singer</p>
+                    <p class="mt-3">Junior at the University of Cincinnati majoring in IT, worked on creating content for the About page</p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 
-    <!-- Benjamin Wilhelm -->
     <div class="col-md-4 mb-4">
-        <div class="card shadow-sm p-3 h-100 text-center">
-            <img src="~/Images/BenjaminWilhelm.jpg"
-                 class="card-img-top"
-                 style="width: 100%; height: 200px; object-fit: cover; object-position: center;"
-                 alt="Benjamin Wilhelm" />
-            <div class="card-body">
-                <h3 class="card-title fw-bold">Benjamin Wilhelm</h3>
-                <p><strong>Major:</strong> (Major)</p>
-                <p><strong>Age:</strong> (Age)</p>
-                <p><strong>Dream Job:</strong> (Dream job)</p>
-                <p class="mt-3">
-                    (Bio for Benjamin — short description of his background and role.)
-                </p>
+        <a asp-controller="About" asp-action="Hobby" asp-route-name="Benjamin"
+   class="btn btn-light w-100 p-0 text-decoration-none text-dark">
+            <div class="card shadow-sm p-3 h-100 text-center">
+                <img src="~/Images/BenjaminWilhelm.jpg"
+                     class="card-img-top"
+                     style="width: 100%; height: 400px; object-fit: cover;"
+                     alt="Benjamin Wilhelm" />
+                <div class="card-body">
+                    <h3 class="card-title fw-bold">Benjamin Wilhelm</h3>
+                    <p><strong>Major:</strong> Information Technology</p>
+                    <p><strong>Age:</strong> 22</p>
+                    <p><strong>Dream Job:</strong> IT Professional</p>
+                    <p class="mt-3">(Bio for Benjamin — short description of his background and role.)</p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 
 </div>

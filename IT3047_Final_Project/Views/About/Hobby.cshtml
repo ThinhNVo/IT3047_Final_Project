@@ -1,0 +1,39 @@
+﻿@model IEnumerable<IT3047_Final_Project.Models.Hobby>
+
+@{
+    ViewData["Title"] = "Member Hobbies";
+}
+
+<div class="text-center py-4 my-4">
+    <h1 class="display-5 fw-bold">@ViewBag.MemberName's Hobbies</h1>
+    <p class="lead mt-2">Here are this member's hobbies.</p>
+</div>
+
+<a asp-controller="About" asp-action="Index" class="btn btn-secondary mb-3">
+    Back to About
+</a>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info text-center">
+        No hobbies have been added for this member yet.
+    </div>
+}
+else
+{
+    <div class="row justify-content-center">
+        @foreach (var hobby in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h3 class="card-title fw-bold">@hobby.HobbyName</h3>
+                        <p>@hobby.Description</p>
+                        <p><strong>Years Invested:</strong> @hobby.YearsInvested</p>
+                        <p><strong>How Often:</strong> @hobby.HowOften</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using IT3047_Final_Project.Models;
+﻿using IT3047_Final_Project.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace IT3047_Final_Project.Controllers
 {
@@ -17,5 +18,17 @@ namespace IT3047_Final_Project.Controllers
             var members = _context.Members.ToList();
             return View(members);
         }
+        public IActionResult Hobby(string name)
+        {
+            var hobbies = _context.Hobbies
+                .Include(h => h.Member)
+                .Where(h => h.Member != null && h.Member.Name.Contains(name))
+                .ToList();
+
+            ViewBag.MemberName = name;
+
+            return View(hobbies);
+        }
+
     }
 }
