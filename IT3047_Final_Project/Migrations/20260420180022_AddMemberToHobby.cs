@@ -4,10 +4,10 @@
 
 namespace IT3047_Final_Project.Migrations
 {
-    /// <inheritdoc />
+    
     public partial class AddMemberToHobby : Migration
     {
-        /// <inheritdoc />
+        
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.RenameColumn(
@@ -36,7 +36,7 @@ namespace IT3047_Final_Project.Migrations
                 onDelete: ReferentialAction.Cascade);
         }
 
-        /// <inheritdoc />
+        
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(

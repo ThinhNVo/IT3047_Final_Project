@@ -14,21 +14,21 @@ namespace IT3047_Final_Project.Controllers
             _context = context;
         }
 
-        // GET: Hobby
+        
         public IActionResult Index()
         {
             var hobbies = _context.Hobbies.Include(h => h.Member).ToList();
             return View(hobbies);
         }
 
-        // GET: Hobby/Create
+        
         public IActionResult Create()
         {
             ViewBag.Members = new SelectList(_context.Members.ToList(), "Id", "Name");
             return View();
         }
 
-        // POST: Hobby/Create
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Hobby hobby)
@@ -43,7 +43,7 @@ namespace IT3047_Final_Project.Controllers
             return View(hobby);
         }
 
-        // GET: Hobby/Delete/5
+        
         public IActionResult Delete(int id)
         {
             var hobby = _context.Hobbies.Include(h => h.Member).FirstOrDefault(h => h.Id == id);
@@ -51,7 +51,7 @@ namespace IT3047_Final_Project.Controllers
             return View(hobby);
         }
 
-        // POST: Hobby/Delete/5
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
